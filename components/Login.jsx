@@ -34,9 +34,15 @@ const Login = () => {
   };
 
   return (
-    <View>
-      <TextInput placeholder="Email" onChangeText={setEmail} value={email} />
-      <TextInput placeholder="Password" secureTextEntry onChangeText={setPassword} value={password} />
+    <View style={style.container}>
+      <TextInput placeholder="Email" onChangeText={setEmail} value={email} style={style.input} />
+      <TextInput
+        style={style.input}
+        placeholder="Password"
+        secureTextEntry
+        onChangeText={setPassword}
+        value={password}
+      />
       <Pressable onPress={handleSignUp} style={style.button}>
         <Text>Sign Up</Text>
       </Pressable>
@@ -53,11 +59,24 @@ const Login = () => {
 export default Login;
 
 const style = StyleSheet.create({
+  container: {
+    padding: "5%",
+    width: "100%",
+    borderWidth: 4,
+    borderColor: "black",
+  },
+  input: {
+    padding: 5,
+    borderWidth: 1,
+    borderColor: "black",
+    marginBottom: 5,
+  },
   button: {
-    backgroundColor: "blue",
+    borderWidth: 2,
+    borderColor: "#20232a",
+    backgroundColor: "#00aaff",
     padding: 10,
-    width: "30%",
-    margin: 10,
-    color: "#ffffff",
+    marginTop: 10,
+    flex: 1,
   },
 });
