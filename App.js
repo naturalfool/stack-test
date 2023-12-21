@@ -2,16 +2,15 @@ import { StatusBar } from "expo-status-bar";
 import { StyleSheet, Text, View } from "react-native";
 import Login from "./components/Login";
 import firebase from "./firebaseApp"; // Import your Firebase configuration
+import GetDb from "./components/GetDb";
 
-import db from "./db";
-
-console.log(db);
 export default function App() {
   return (
     <View style={styles.container}>
       <Text>Hello There</Text>
       <StatusBar style="auto" />
       <Login></Login>
+      <GetDb></GetDb>
     </View>
   );
 }

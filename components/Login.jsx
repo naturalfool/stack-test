@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { View, TextInput, Button } from "react-native";
+import { View, TextInput, Pressable, Text, StyleSheet } from "react-native";
 import firebase from "../firebaseApp";
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from "firebase/auth";
 
@@ -27,7 +27,7 @@ const Login = () => {
 
   const handleSignOut = async () => {
     try {
-      await signOut();
+      await signOut(auth);
     } catch (error) {
       console.error(error.message);
     }
@@ -37,11 +37,27 @@ const Login = () => {
     <View>
       <TextInput placeholder="Email" onChangeText={setEmail} value={email} />
       <TextInput placeholder="Password" secureTextEntry onChangeText={setPassword} value={password} />
-      <Button title="Sign Up" onPress={handleSignUp} />
-      <Button title="Sign In" onPress={handleSignIn} />
-      <Button title="Sign Out" onPress={handleSignOut} />
+      <Pressable onPress={handleSignUp} style={style.button}>
+        <Text>Sign Up</Text>
+      </Pressable>
+      <Pressable onPress={handleSignIn} style={style.button}>
+        <Text>Sign In</Text>
+      </Pressable>
+      <Pressable onPress={handleSignOut} style={style.button}>
+        <Text>Sign Out</Text>
+      </Pressable>
     </View>
   );
 };
 
 export default Login;
+
+const style = StyleSheet.create({
+  button: {
+    backgroundColor: "blue",
+    padding: 10,
+    width: "30%",
+    margin: 10,
+    color: "#ffffff",
+  },
+});
