@@ -40,8 +40,6 @@ const Login = () => {
       <Button title="Sign Up" onPress={handleSignUp} />
       <Button title="Sign In" onPress={handleSignIn} />
       <Button title="Sign Out" onPress={handleSignOut} />
-
-      <Button title="Sign in with Google" onPress={handleGoogleSignIn} />
     </View>
   );
 };
